@@ -129,7 +129,7 @@
 
 /* NATTETILSTAND ----------------------------------------------------------------------------------------------- */
 .scene.night {
-    background-color: #222833
+    background: #222833;
 }
 
 /* ændrer solens position */
