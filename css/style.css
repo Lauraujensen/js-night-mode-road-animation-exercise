@@ -18,3 +18,133 @@
     /* Baggrundsfarve med gradient */
 }
 
+.sun{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    top: 100px;
+    left: 55%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 50px #fff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 280px;
+    bottom: 0;
+    background: url(../img/bg.png);
+    background-size: 1500px;
+    background-repeat: repeat-x; /* gentager baggrundsbilledet horisontalt (x-aksen) */
+    animation: animateBG 17s linear infinite; /* konstant bevægelse */
+}
+
+/* ANIMATIONER ----------------------------------------------------------------------------------------------- */
+
+/* keyframes bruges især til animationer */
+@keyframes animateBG /* Man tager navnet vi gav lige ovenover */{
+    0% {
+        background-position-x: 0px; /* start position */
+    }
+    100% {
+        background-position-x: -1500px; /* slut position */
+    }
+}
+
+.car1{
+    position: absolute;
+    bottom: 20px;
+    max-width: 200px;
+    z-index: 1;
+    left: -200px; /* starter udenfor skærmen */
+    animation: car1 18s linear infinite; /* bevæger sig hen over skærmen i monoton hastighed */
+}
+
+@keyframes car1{
+    0% {
+        transform: translateX(0px);
+    }
+    90%, 100% { /* man kan lave komma imellem keyframes, hvis de skal styles identisk */
+        transform: translateX( calc(100vw + 200px)); /* kører fra venstre til højre og forsvinder ud af skærmen */
+    }
+}
+
+.car2{
+    position: absolute;
+    bottom: 50px;
+    max-width: 200px;
+    right: -200px; /* starter udenfor skærmen */
+    animation: car2 12s linear infinite;
+}
+
+@keyframes car2{
+    0% {
+        transform: translateX(0px) rotateY(180deg);
+    }
+    90%, 100% {
+        transform: translateX( calc(-100vw - 200px)) rotateY(180deg); /* kører fra højre til venstre og forsvinder ud af skærmen */
+    }
+}
+
+.bus{
+    position: absolute;
+    bottom: 0;
+    max-width: 200px;
+    left: -200px;
+    animation: bus 26s linear infinite;
+}
+
+@keyframes bus{
+    0% {
+        transform: translateX(0px) rotateY(180deg);;
+    }
+    90%, 100% {
+        transform: translateX( calc(100vw + 200px)) rotateY(180deg); /* kører fra venstre til højre og forsvinder ud af skærmen */
+    }
+}
+
+.truck{
+    position: absolute;
+    bottom: 0;
+    max-width: 200px;
+    left: -200px;
+    animation: truck 36s linear infinite;
+}
+
+@keyframes truck{
+    0% {
+        transform: translateX(0px) rotateY(180deg);
+    }
+    90%, 100% {
+        transform: translateX( calc(100vw + 200px)) rotateY(180deg);; /* kører fra venstre til højre og forsvinder ud af skærmen */
+    }
+}
+/* ANIMATIONER ----------------------------------------------------------------------------------------------- */
+
+
+
+/* NATTETILSTAND ----------------------------------------------------------------------------------------------- */
+.scene.night {
+    background-color: #222833
+}
+
+/* ændrer solens position */
+.scene.night .sun{
+    left: 45%;
+    box-shadow: 0 0 0 #fff;
+}
+
+.scene.night .sun:before{
+    content: ''; /* indsætter et pseudo-element, men uden tekstindhold */
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #222833; /* gør en del af solen mørk, så det ligner en måne */
+    border-radius: 50%;
+}
